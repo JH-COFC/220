@@ -1,5 +1,6 @@
 def avg_daily_value():
-    interest=eval(input("What is the APR?"))/1200
+    print("This program computes the monthly interest charge of an account.")
+    interest=eval(input("What is the % APR?"))/1200
     billing_cycle = eval(input("How many days are in the billing cycle?"))
     net_balance = eval(input("What is the net balance of the account?"))
     net_payment = eval(input("What amount was the net payment recieved?"))
@@ -9,6 +10,3 @@ def avg_daily_value():
     step3 = step1-step2
     average = step3/billing_cycle
     print("The monthly interest charge is: $",(average*interest))
-
-
-avg_daily_value()
