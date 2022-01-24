@@ -1,4 +1,4 @@
-def avg_daily_value():
+def calc_monthly_interest():
     print("This program computes the monthly interest charge of an account.")
     interest=eval(input("What is the % APR?"))/1200
     billing_cycle = eval(input("How many days are in the billing cycle?"))
