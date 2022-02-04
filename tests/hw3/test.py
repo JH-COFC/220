@@ -11,7 +11,9 @@ def main():
     builder = TestBuilder("hw 3", 'hw3.py', linter_points=20, default_test_points=2)
     builder.add_to_blacklist({
         'if (?!__name__).*:': 'if statements not allowed for this assignment. please remove it to continue',
-        'while.*:': 'while loops not allowed for this assignment. please remove it to continue'
+        'while.*:': 'while loops not allowed for this assignment. please remove it to continue',
+        '\[*\]': 'lists are not allowed for this assignment. please remove it to continue',
+        'list': 'lists are not allowed for this assignment. please remove it to continue'
     })
     builder.add_items(
         build_IO_section('average', [('1', '10')], ["10.0"], build_average_tests(9), hw3.average))
@@ -24,7 +26,8 @@ def main():
         build_IO_section('sequence', [["5"]], [["1", "1", "3", "3", "5"]], build_sequence_tests(9), hw3.sequence,
                          test_all_output=True))
     builder.add_items(
-        build_IO_section('pi', [("3")], ["3.5555555555555554"], build_pi_tests(9), hw3.pi))
+        build_IO_section('pi', [("3")], [("3.5555555555555554")], build_pi_tests(9),
+                         hw3.pi, error_range=0.0000000000001))
     builder.run()
 
 
@@ -42,9 +45,12 @@ def build_pi_tests(n):
             nums.append(n)
             dens.append(d)
         acc = 1
+        numm, denn = 1, 1
         for i, num in enumerate(nums):
             acc *= num / dens[i]
-        res.append({'test': [str(terms)], 'expected': str(acc * 2)})
+            numm *= num
+            denn *= dens[i]
+        res.append({'test': [str(terms)], 'expected': (str(acc * 2))})
     return res
 
 
