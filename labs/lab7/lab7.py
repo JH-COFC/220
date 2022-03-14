@@ -1,5 +1,3 @@
-
-
 def weighted_average(in_file_name, out_file_name):
     input_file = open(in_file_name, 'r')
     grade_list = input_file.readlines()
