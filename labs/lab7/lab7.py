@@ -1,3 +1,4 @@
+
 def weighted_average(in_file_name, out_file_name):
     input_file = open(in_file_name, 'r')
     grade_list = input_file.readlines()
@@ -39,7 +40,6 @@ def weighted_average(in_file_name, out_file_name):
     output_text = output_text + class_average_text
     final_output = open(out_file_name, 'w')
     print(output_text, file=final_output)
-
 
 if __name__ == "__main__":
     weighted_average('grades.txt', 'avg.txt')
