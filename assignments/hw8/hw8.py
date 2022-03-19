@@ -2,12 +2,14 @@
 Name: <Jordan Herder>
 <hw8>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: <Program adds 10 to all numbers in a list, squares each number in a list, sums a list,
+converts a list of strings into a list of the same numbers, turns a list of strings into a list of sums of squares,
+processes entry requirements for a wrestler, determines if a given year is a leap year, and checks if two circles
+overlap.>
 
 Certification of Authenticity:
 <include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 import math
 from graphics import GraphWin, Circle, Point
