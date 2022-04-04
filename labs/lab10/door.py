@@ -22,8 +22,8 @@ class Door:
         self.text.undraw()
 
     def is_clicked(self, point):
-        xrange = (self.shape.getP1().getX() < point.getX() and point.getX() <= self.shape.getP2().getX())
-        yrange = (self.shape.getP1().getY() < point.getY() and point.getY() <= self.shape.getP2().getY())
+        xrange = (self.shape.getP1().getX() <= point.getX() <= self.shape.getP2().getX())
+        yrange = (self.shape.getP1().getY() <= point.getY() <= self.shape.getP2().getY())
         return xrange and yrange
 
     def open(self, color, label):
