@@ -1,3 +1,17 @@
+"""
+Name: Jordan Herder
+This assignment is entirely my own work.
+
+Creates the SalesForce object class, a list of SalesPeople, which contains methods for:
+Adding data to the object from a file
+Providing information on if employees have beaten a sales quota
+Returning the top seller(s)
+Returning the employee with a given employee id
+Returning the frequency of particular sale amounts
+
+"""
+
+
 from sales_person import SalesPerson
 
 
@@ -12,7 +26,10 @@ class SalesForce:
             sales_list = split_line[2].split()
             for i in range(len(sales_list)):
                 sales_list[i] = eval(sales_list[i])
-            self.sales_people.append(SalesPerson(int(split_line[0]), split_line[1], sales_list))
+            new_sales_person = SalesPerson(int(split_line[0]), split_line[1])
+            for j in sales_list:
+                new_sales_person.enter_sale(j)
+            self.sales_people.append(new_sales_person)
 
     def quota_report(self, quota):
         report = []
@@ -46,7 +63,7 @@ class SalesForce:
                 return seller
         return None
 
-    def get_sales_frequencies(self):
+    def get_sale_frequencies(self):
         sales = {}
         for seller in self.sales_people:
             for sale in seller.get_sales():

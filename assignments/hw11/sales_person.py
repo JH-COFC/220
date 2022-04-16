@@ -1,8 +1,25 @@
+"""
+Name: Jordan Herder
+This assignment is entirely my own work.
+
+Creates the class SalesPerson, which contains:
+an integer employee id
+a string employee name
+a list of employee sales
+
+Also contains methods to get name, id, and sales,
+to set name, add a sale, and return the sum of sales,
+and to compare total sales to another SalesPerson.
+
+Also contains str() integration.
+"""
+
+
 class SalesPerson:
-    def __init__(self, employee_id, name, sales):
+    def __init__(self, employee_id, name):
         self.employee_id = employee_id
         self.name = name
-        self.sales = sales
+        self.sales = []
 
     def get_id(self):
         return self.employee_id
@@ -25,16 +42,14 @@ class SalesPerson:
     def met_quota(self, quota):
         if quota > sum(self.sales):
             return False
-        else:
-            return True
+        return True
 
     def compare_to(self, other):
         if other.total_sales() < sum(self.sales):
             return 1
         elif other.total_sales() == sum(self.sales):
             return 0
-        elif other.total_sales() > sum(self.sales):
-            return -1
+        return -1
 
     def __str__(self):
-        return '{} {} {}'.format(self.name, self.employee_id, self.sales)
+        return '{}-{}:{}'.format(self.employee_id, self.name, self.sales)
